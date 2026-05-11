@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+:root {
+  --bg: #081221;
+  --bg-soft: #0d1b2f;
+  --card: #0f223b;
+  --card-2: #112946;
+  --text: #e8eef7;
+  --muted: #94a3b8;
+  --line: rgba(148, 163, 184, 0.16);
+  --primary: #22c1c3;
+  --primary-dark: #12a4a6;
+  --accent: #60a5fa;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(34, 193, 195, 0.14), transparent 30%),
+    radial-gradient(circle at top right, rgba(96, 165, 250, 0.12), transparent 28%),
+    linear-gradient(180deg, #07111f 0%, #09172a 100%);
+  color: var(--text);
+}
+
+::selection {
+  background: rgba(34, 193, 195, 0.25);
+  color: white;
+}
+
+@layer components {
+  .container-custom {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+
+  .card-base {
+    @apply rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-cyan-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300 active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10 active:scale-[0.98];
+  }
+
+  .nav-link {
+    @apply text-sm font-medium text-slate-300 transition hover:text-white;
+  }
+
+  .service-card {
+    @apply rounded-3xl border border-white/10 bg-slate-900/40 p-6 transition duration-300 hover:-translate-y-1 hover:border-cyan-300/30 hover:bg-slate-900/70;
+  }
+}
