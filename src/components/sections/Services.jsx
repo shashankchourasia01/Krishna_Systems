@@ -1,17 +1,17 @@
 import { motion } from 'motion/react'
 import Container from '../ui/Container'
 import SectionHeading from '../ui/SectionHeading'
-import Reveal from '../ui/Reveal'
 import { services, ArrowIcon } from '../../data/siteData'
 
 const Services = () => {
   return (
-    <section id="services" className="section-padding">
+    <section id="services" className="surface-blue section-padding">
       <Container>
         <SectionHeading
           badge="Services"
           title="End-to-End Technology Services"
           description="Comprehensive enterprise solutions tailored for scalability, performance, and future readiness."
+          align="center"
         />
 
         <motion.div
@@ -20,11 +20,7 @@ const Services = () => {
           viewport={{ once: true, amount: 0.15 }}
           variants={{
             hidden: {},
-            show: {
-              transition: {
-                staggerChildren: 0.08,
-              },
-            },
+            show: { transition: { staggerChildren: 0.08 } },
           }}
           className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4"
         >
@@ -39,12 +35,15 @@ const Services = () => {
                 }}
                 className="service-card"
               >
-                <div className="mb-5 inline-flex rounded-2xl bg-cyan-400/10 p-3 text-cyan-300">
+                <div className="mb-5 inline-flex rounded-2xl bg-sky-50 p-3 text-sky-700">
                   <Icon size={22} />
                 </div>
-                <h3 className="text-xl font-bold text-white">{service.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-slate-300">{service.description}</p>
-                <a href="#contact" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-cyan-300 transition hover:text-cyan-200">
+                <h3 className="text-xl font-bold text-slate-950">{service.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-slate-600">{service.description}</p>
+                <a
+                  href="#contact"
+                  className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-sky-700 transition hover:text-sky-800"
+                >
                   Learn More <ArrowIcon size={16} />
                 </a>
               </motion.div>

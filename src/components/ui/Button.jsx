@@ -5,7 +5,12 @@ const Button = ({
   className = '',
   onClick,
 }) => {
-  const styles = variant === 'primary' ? 'btn-primary' : 'btn-secondary'
+  const styles =
+    variant === 'primary'
+      ? 'btn-primary'
+      : variant === 'dark'
+      ? 'btn-dark'
+      : 'btn-secondary'
 
   return (
     <a href={href} className={`${styles} ${className}`} onClick={onClick}>

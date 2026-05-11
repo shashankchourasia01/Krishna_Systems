@@ -6,9 +6,9 @@ import { CheckCircle2 } from 'lucide-react'
 
 const WhyChooseUs = () => {
   return (
-    <section className="section-padding">
+    <section className="surface-white section-padding">
       <Container>
-        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+        <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
           <Reveal>
             <SectionHeading
               badge="Why Choose Us"
@@ -20,10 +20,10 @@ const WhyChooseUs = () => {
           <Reveal delay={0.12}>
             <div className="grid gap-4 sm:grid-cols-2">
               {reasons.map((reason) => (
-                <div key={reason} className="card-base rounded-2xl p-5">
+                <div key={reason} className="card-light p-5">
                   <div className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 text-cyan-300" size={18} />
-                    <p className="text-sm leading-7 text-slate-200">{reason}</p>
+                    <CheckCircle2 className="mt-0.5 text-teal-700" size={18} />
+                    <p className="text-sm leading-7 text-slate-700">{reason}</p>
                   </div>
                 </div>
               ))}

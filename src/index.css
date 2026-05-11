@@ -1,17 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
 @import "tailwindcss";
 
 :root {
-  --bg: #081221;
-  --bg-soft: #0d1b2f;
-  --card: #0f223b;
-  --card-2: #112946;
-  --text: #e8eef7;
-  --muted: #94a3b8;
-  --line: rgba(148, 163, 184, 0.16);
-  --primary: #22c1c3;
-  --primary-dark: #12a4a6;
-  --accent: #60a5fa;
+  --bg: #f8fbff;
+  --bg-soft: #eef5fb;
+  --bg-blue: #eaf4ff;
+  --bg-dark: #0b1320;
+  --bg-dark-soft: #101a2d;
+
+  --card: #ffffff;
+  --card-soft: #f5f9fd;
+  --text: #0f172a;
+  --muted: #5b6b82;
+  --line: #d9e5f2;
+
+  --primary: #0f766e;
+  --primary-2: #0ea5e9;
+  --accent: #2563eb;
+  --dark-text: #eaf2fb;
 }
 
 html {
@@ -20,16 +26,31 @@ html {
 
 body {
   font-family: 'Manrope', sans-serif;
-  background:
-    radial-gradient(circle at top left, rgba(34, 193, 195, 0.14), transparent 30%),
-    radial-gradient(circle at top right, rgba(96, 165, 250, 0.12), transparent 28%),
-    linear-gradient(180deg, #07111f 0%, #09172a 100%);
+  background: var(--bg);
   color: var(--text);
 }
 
+h1, h2, .font-display {
+  font-family: 'Playfair Display', serif;
+}
+
 ::selection {
-  background: rgba(34, 193, 195, 0.25);
-  color: white;
+  background: rgba(14, 165, 233, 0.2);
+  color: #0f172a;
+}
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+
+  body {
+    @apply antialiased;
+  }
+
+  a, button {
+    @apply transition-all duration-300;
+  }
 }
 
 @layer components {
@@ -41,23 +62,67 @@ body {
     @apply py-16 sm:py-20 lg:py-24;
   }
 
-  .card-base {
-    @apply rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm;
+  .surface-white {
+    @apply bg-white;
+  }
+
+  .surface-soft {
+    background: linear-gradient(180deg, #f8fbff 0%, #eef6fc 100%);
+  }
+
+  .surface-blue {
+    background: linear-gradient(180deg, #eef7ff 0%, #e7f2fb 100%);
+  }
+
+  .surface-dark {
+    background: linear-gradient(180deg, #0b1320 0%, #111c30 100%);
+  }
+
+  .card-light {
+    @apply rounded-3xl border border-slate-200 bg-white shadow-[0_10px_30px_rgba(15,23,42,0.06)];
+  }
+
+  .card-soft {
+    @apply rounded-3xl border border-sky-100 bg-slate-50/80 shadow-[0_10px_25px_rgba(37,99,235,0.06)];
+  }
+
+  .card-dark {
+    @apply rounded-3xl border border-white/10 bg-white/5 text-white shadow-[0_15px_40px_rgba(2,8,23,0.35)];
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-full bg-cyan-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300 active:scale-[0.98];
+    @apply inline-flex items-center justify-center rounded-full bg-teal-700 px-6 py-3 text-sm font-semibold text-white shadow-[0_10px_25px_rgba(15,118,110,0.22)] transition hover:-translate-y-0.5 hover:bg-teal-800;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10 active:scale-[0.98];
+    @apply inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-800 transition hover:border-slate-400 hover:bg-slate-50;
+  }
+
+  .btn-dark {
+    @apply inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/15;
   }
 
   .nav-link {
-    @apply text-sm font-medium text-slate-300 transition hover:text-white;
+    @apply text-sm font-medium text-slate-700 transition hover:text-slate-950;
+  }
+
+  .eyebrow {
+    @apply inline-flex rounded-full border border-teal-200 bg-teal-50 px-4 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-teal-700;
+  }
+
+  .input-field {
+    @apply w-full rounded-2xl border border-slate-200 bg-white px-4 py-3.5 text-slate-900 outline-none placeholder:text-slate-400 focus:border-sky-300 focus:ring-4 focus:ring-sky-100;
   }
 
   .service-card {
-    @apply rounded-3xl border border-white/10 bg-slate-900/40 p-6 transition duration-300 hover:-translate-y-1 hover:border-cyan-300/30 hover:bg-slate-900/70;
+    @apply rounded-[28px] border border-slate-200 bg-white p-6 shadow-[0_12px_30px_rgba(15,23,42,0.05)] transition duration-300 hover:-translate-y-1 hover:border-sky-200 hover:shadow-[0_20px_45px_rgba(14,165,233,0.10)];
+  }
+
+  .section-title {
+    @apply text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl lg:text-5xl;
+  }
+
+  .section-copy {
+    @apply mt-4 text-sm leading-7 text-slate-600 sm:text-base;
   }
 }

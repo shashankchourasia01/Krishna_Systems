@@ -3,17 +3,19 @@ import { footerServices } from '../../data/siteData'
 
 const Footer = () => {
   return (
-    <footer className="border-t border-white/10 py-10">
+    <footer className="surface-dark border-t border-white/10 py-12 text-white">
       <Container>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-cyan-400/15 ring-1 ring-cyan-300/20">
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10 ring-1 ring-white/10">
                 <span className="text-lg font-extrabold text-cyan-300">KS</span>
               </div>
               <div>
                 <p className="font-extrabold text-white">Krisha Systems</p>
-                <p className="text-sm text-slate-400">Empowering enterprises with top-notch talent and specialized IT services.</p>
+                <p className="text-sm text-slate-400">
+                  Empowering enterprises with top-notch talent and specialized IT services.
+                </p>
               </div>
             </div>
           </div>

@@ -6,24 +6,30 @@ import { stats } from '../../data/siteData'
 
 const Hero = () => {
   return (
-    <section id="home" className="relative overflow-hidden pt-10 sm:pt-14 lg:pt-20">
-      <Container>
-        <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+    <section
+      id="home"
+      className="relative overflow-hidden surface-soft pt-10 sm:pt-14 lg:pt-20"
+    >
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute left-0 top-0 h-72 w-72 rounded-full bg-cyan-200/30 blur-3xl" />
+        <div className="absolute right-0 top-20 h-80 w-80 rounded-full bg-sky-200/30 blur-3xl" />
+      </div>
+
+      <Container className="relative">
+        <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
           <div>
             <Reveal>
-              <span className="inline-flex rounded-full border border-cyan-300/20 bg-cyan-400/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-cyan-300">
-                Enterprise IT Services
-              </span>
+              <span className="eyebrow">Enterprise IT Services</span>
             </Reveal>
 
             <Reveal delay={0.08}>
-              <h1 className="mt-6 max-w-4xl text-4xl font-extrabold leading-tight text-white sm:text-5xl lg:text-6xl">
+              <h1 className="mt-6 max-w-4xl text-4xl font-extrabold leading-tight text-slate-950 sm:text-5xl lg:text-6xl">
                 Enterprise IT Services and Staffing That Deliver Real Results
               </h1>
             </Reveal>
 
             <Reveal delay={0.15}>
-              <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
+              <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
                 Krisha Systems helps businesses scale with high-quality staffing solutions and expert IT services across Data & AI, Cloud, Integration, Full Stack, SAP, Oracle, and Salesforce.
               </p>
             </Reveal>
@@ -35,40 +41,43 @@ const Hero = () => {
               </div>
             </Reveal>
 
-            <Reveal delay={0.3}>
+            <Reveal delay={0.28}>
               <div className="mt-10 grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-3">
                 {stats.map((item) => (
-                  <div key={item.label} className="card-base rounded-2xl p-5">
-                    <p className="text-2xl font-extrabold text-white sm:text-3xl">{item.value}</p>
-                    <p className="mt-2 text-sm text-slate-400">{item.label}</p>
+                  <div key={item.label} className="card-light p-5">
+                    <p className="text-2xl font-extrabold text-slate-950 sm:text-3xl">{item.value}</p>
+                    <p className="mt-2 text-sm text-slate-500">{item.label}</p>
                   </div>
                 ))}
               </div>
             </Reveal>
           </div>
 
-          <Reveal delay={0.18} className="relative">
+          <Reveal delay={0.18}>
             <motion.div
-              animate={{ y: [0, -8, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
               className="relative mx-auto max-w-xl"
             >
-              <div className="card-base rounded-[28px] p-6 sm:p-8">
-                <div className="rounded-[24px] border border-white/10 bg-gradient-to-br from-cyan-400/10 via-blue-400/10 to-transparent p-6">
+              <div className="card-light overflow-hidden p-4 sm:p-5">
+                <div className="rounded-[24px] bg-[linear-gradient(135deg,#0f172a_0%,#133155_55%,#155e75_100%)] p-6 text-white sm:p-8">
                   <div className="grid gap-4 sm:grid-cols-2">
-                    <div className="rounded-2xl bg-slate-900/70 p-5">
-                      <p className="text-sm text-slate-400">Cloud Readiness</p>
-                      <p className="mt-3 text-3xl font-bold text-white">94%</p>
+                    <div className="rounded-2xl bg-white/10 p-5 backdrop-blur-sm">
+                      <p className="text-sm text-slate-200">Cloud Readiness</p>
+                      <p className="mt-3 text-3xl font-bold">94%</p>
                     </div>
-                    <div className="rounded-2xl bg-slate-900/70 p-5">
-                      <p className="text-sm text-slate-400">Delivery Speed</p>
-                      <p className="mt-3 text-3xl font-bold text-white">2x</p>
+                    <div className="rounded-2xl bg-white/10 p-5 backdrop-blur-sm">
+                      <p className="text-sm text-slate-200">Delivery Speed</p>
+                      <p className="mt-3 text-3xl font-bold">2x</p>
                     </div>
-                    <div className="sm:col-span-2 rounded-2xl bg-slate-900/70 p-5">
-                      <p className="text-sm text-slate-400">Technology Coverage</p>
+                    <div className="rounded-2xl bg-white/10 p-5 backdrop-blur-sm sm:col-span-2">
+                      <p className="text-sm text-slate-200">Technology Coverage</p>
                       <div className="mt-4 flex flex-wrap gap-2">
                         {['Data & AI', 'Cloud', 'Integration', 'SAP', 'Oracle', 'Salesforce'].map((tag) => (
-                          <span key={tag} className="rounded-full border border-cyan-300/20 bg-cyan-400/10 px-3 py-1 text-xs font-medium text-cyan-200">
+                          <span
+                            key={tag}
+                            className="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-medium text-white"
+                          >
                             {tag}
                           </span>
                         ))}

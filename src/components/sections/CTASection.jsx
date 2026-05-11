@@ -4,10 +4,10 @@ import Reveal from '../ui/Reveal'
 
 const CTASection = () => {
   return (
-    <section className="section-padding">
+    <section className="section-padding surface-dark">
       <Container>
         <Reveal>
-          <div className="overflow-hidden rounded-[32px] border border-cyan-300/20 bg-gradient-to-r from-cyan-400/15 via-sky-400/10 to-cyan-400/5 p-8 sm:p-10 lg:p-14">
+          <div className="overflow-hidden rounded-[32px] border border-white/10 bg-[linear-gradient(135deg,#0f172a_0%,#13243e_50%,#155e75_100%)] p-8 sm:p-10 lg:p-14">
             <div className="max-w-3xl">
               <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">
                 Ready to accelerate?
@@ -20,7 +20,7 @@ const CTASection = () => {
               </p>
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
                 <Button href="#contact">Get a Quote</Button>
-                <Button href="mailto:krishasystems7@gmail.com" variant="secondary">
+                <Button href="mailto:krishasystems7@gmail.com" variant="dark">
                   Email Us
                 </Button>
               </div>
