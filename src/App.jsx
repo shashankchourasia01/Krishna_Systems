@@ -12,9 +12,9 @@ import Contact from './components/sections/Contact'
 
 function App() {
   return (
-    <div className="min-h-screen bg-[var(--bg)] text-[var(--text)] transition-colors duration-350">
+    <div className="min-h-screen w-full max-w-[100vw] overflow-x-hidden bg-[var(--bg)] text-[var(--text)] transition-colors duration-350">
       <Navbar />
-      <main>
+      <main className="w-full overflow-x-hidden">
         <Hero />
         <Clients />
         <About />

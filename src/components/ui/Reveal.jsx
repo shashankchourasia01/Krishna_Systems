@@ -32,9 +32,9 @@ const Reveal = ({
   const hidden = isMobile
     ? {
         opacity: 0,
-        y: scrollDir === 'down' ? Math.abs(base.y || 44) : -(Math.abs(base.y || 44)),
-        x: base.x || 0,
-        scale: direction === 'scale' ? 0.92 : 1,
+        y: scrollDir === 'down' ? 36 : -36,
+        x: 0,
+        scale: direction === 'scale' ? 0.96 : 1,
       }
     : {
         opacity: 0,
@@ -48,7 +48,7 @@ const Reveal = ({
   return (
     <motion.div
       ref={ref}
-      className={className}
+      className={`max-w-full ${className}`}
       initial={false}
       animate={isInView ? visible : hidden}
       transition={{

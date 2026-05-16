@@ -34,6 +34,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5.5rem;
+  overflow-x: hidden;
 }
 
 body {
@@ -41,6 +42,15 @@ body {
   background: var(--bg);
   color: var(--text);
   transition: background-color 0.35s ease, color 0.35s ease;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+#root {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
 }
 
 h1, h2, .font-display {
@@ -73,11 +83,11 @@ h1, h2, .font-display {
 
 @layer components {
   .container-custom {
-    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+    @apply mx-auto w-full max-w-7xl overflow-x-hidden px-4 sm:px-6 lg:px-8;
   }
 
   .section-padding {
-    @apply py-14 sm:py-20 lg:py-24;
+    @apply w-full overflow-x-hidden py-14 sm:py-20 lg:py-24;
   }
 
   .surface-white {
@@ -141,8 +151,8 @@ h1, h2, .font-display {
   }
 
   .eyebrow {
-    @apply inline-flex rounded-full border border-teal-200 bg-teal-50 px-4 py-1 text-xs font-semibold uppercase
-      tracking-[0.22em] text-teal-700
+    @apply inline-flex max-w-full rounded-full border border-teal-200 bg-teal-50 px-4 py-1 text-center text-xs font-semibold uppercase
+      tracking-[0.18em] text-teal-700 sm:tracking-[0.22em]
       dark:border-teal-500/30 dark:bg-teal-500/10 dark:text-teal-300;
   }
 
@@ -161,7 +171,7 @@ h1, h2, .font-display {
   }
 
   .section-title {
-    @apply text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl lg:text-5xl
+    @apply break-words text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl lg:text-5xl
       dark:text-slate-50;
   }
 
@@ -169,14 +179,8 @@ h1, h2, .font-display {
     @apply mt-4 text-sm leading-7 text-slate-600 sm:text-base dark:text-slate-400;
   }
 
-  .client-marquee {
-    @apply flex gap-4 overflow-x-auto pb-2 scrollbar-none sm:grid sm:overflow-visible sm:pb-0;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
-  .client-marquee::-webkit-scrollbar {
-    display: none;
+  .client-grid {
+    @apply grid w-full grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-5;
   }
 
   .gradient-text {
