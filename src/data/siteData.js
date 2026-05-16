@@ -11,6 +11,10 @@ import {
   PhoneCall,
   Mail,
   ArrowRight,
+  Building2,
+  Landmark,
+  ShoppingCart,
+  MapPin,
 } from 'lucide-react'
 
 export const navLinks = [
@@ -106,16 +110,19 @@ export const caseStudies = [
     tag: 'Banking',
     title: 'Global Banking Leader',
     text: 'Streamlined cloud infrastructure migration for a major financial institution, reducing latency and improving resilience.',
+    icon: Landmark,
   },
   {
     tag: 'Fintech',
     title: 'Major IT Giant',
     text: 'Deployed a 20-person specialized team within two weeks to accelerate a core banking product launch.',
+    icon: Building2,
   },
   {
     tag: 'E-commerce',
     title: 'SaaS Innovator',
     text: 'Delivered full-stack redevelopment and Salesforce integration for a logistics platform scaling to millions of users.',
+    icon: ShoppingCart,
   },
 ]
 
@@ -131,6 +138,12 @@ export const contactItems = [
     value: '+91 9971504001',
     href: 'tel:+919971504001',
     icon: PhoneCall,
+  },
+  {
+    title: 'Location',
+    value: 'Delhi, India',
+    href: '#contact',
+    icon: MapPin,
   },
 ]
 

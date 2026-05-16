@@ -1,5 +1,6 @@
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
+import ScrollToTop from './components/ui/ScrollToTop'
 import Hero from './components/sections/Hero'
 import Clients from './components/sections/Clients'
 import About from './components/sections/About'
@@ -11,7 +12,7 @@ import Contact from './components/sections/Contact'
 
 function App() {
   return (
-    <div className="min-h-screen bg-white text-slate-900">
+    <div className="min-h-screen bg-[var(--bg)] text-[var(--text)] transition-colors duration-350">
       <Navbar />
       <main>
         <Hero />
@@ -24,6 +25,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
+      <ScrollToTop />
     </div>
   )
 }

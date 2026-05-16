@@ -1,33 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --bg: #f8fbff;
   --bg-soft: #eef5fb;
   --bg-blue: #eaf4ff;
   --bg-dark: #0b1320;
   --bg-dark-soft: #101a2d;
-
   --card: #ffffff;
   --card-soft: #f5f9fd;
   --text: #0f172a;
   --muted: #5b6b82;
   --line: #d9e5f2;
-
   --primary: #0f766e;
   --primary-2: #0ea5e9;
   --accent: #2563eb;
   --dark-text: #eaf2fb;
 }
 
+.dark {
+  --bg: #0b1320;
+  --bg-soft: #101a2d;
+  --bg-blue: #0f1a2e;
+  --card: #141f33;
+  --card-soft: #1a2740;
+  --text: #eaf2fb;
+  --muted: #94a3b8;
+  --line: #1e2d45;
+}
+
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
 }
 
 body {
   font-family: 'Manrope', sans-serif;
   background: var(--bg);
   color: var(--text);
+  transition: background-color 0.35s ease, color 0.35s ease;
 }
 
 h1, h2, .font-display {
@@ -37,6 +50,11 @@ h1, h2, .font-display {
 ::selection {
   background: rgba(14, 165, 233, 0.2);
   color: #0f172a;
+}
+
+.dark ::selection {
+  background: rgba(14, 165, 233, 0.35);
+  color: #eaf2fb;
 }
 
 @layer base {
@@ -59,19 +77,27 @@ h1, h2, .font-display {
   }
 
   .section-padding {
-    @apply py-16 sm:py-20 lg:py-24;
+    @apply py-14 sm:py-20 lg:py-24;
   }
 
   .surface-white {
-    @apply bg-white;
+    @apply bg-white dark:bg-[#0b1320];
   }
 
   .surface-soft {
     background: linear-gradient(180deg, #f8fbff 0%, #eef6fc 100%);
   }
 
+  .dark .surface-soft {
+    background: linear-gradient(180deg, #0b1320 0%, #101a2d 100%);
+  }
+
   .surface-blue {
     background: linear-gradient(180deg, #eef7ff 0%, #e7f2fb 100%);
+  }
+
+  .dark .surface-blue {
+    background: linear-gradient(180deg, #0f1a2e 0%, #101c32 100%);
   }
 
   .surface-dark {
@@ -79,11 +105,13 @@ h1, h2, .font-display {
   }
 
   .card-light {
-    @apply rounded-3xl border border-slate-200 bg-white shadow-[0_10px_30px_rgba(15,23,42,0.06)];
+    @apply rounded-3xl border border-slate-200 bg-white shadow-[0_10px_30px_rgba(15,23,42,0.06)]
+      dark:border-slate-700/80 dark:bg-[#141f33] dark:shadow-[0_10px_30px_rgba(0,0,0,0.35)];
   }
 
   .card-soft {
-    @apply rounded-3xl border border-sky-100 bg-slate-50/80 shadow-[0_10px_25px_rgba(37,99,235,0.06)];
+    @apply rounded-3xl border border-sky-100 bg-slate-50/80 shadow-[0_10px_25px_rgba(37,99,235,0.06)]
+      dark:border-slate-700/60 dark:bg-[#1a2740]/90 dark:shadow-[0_10px_25px_rgba(0,0,0,0.25)];
   }
 
   .card-dark {
@@ -91,38 +119,90 @@ h1, h2, .font-display {
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-full bg-teal-700 px-6 py-3 text-sm font-semibold text-white shadow-[0_10px_25px_rgba(15,118,110,0.22)] transition hover:-translate-y-0.5 hover:bg-teal-800;
+    @apply inline-flex items-center justify-center rounded-full bg-teal-700 px-6 py-3 text-sm font-semibold text-white
+      shadow-[0_10px_25px_rgba(15,118,110,0.22)] transition hover:-translate-y-0.5 hover:bg-teal-800
+      dark:bg-teal-600 dark:shadow-[0_10px_25px_rgba(15,118,110,0.15)] dark:hover:bg-teal-500;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-800 transition hover:border-slate-400 hover:bg-slate-50;
+    @apply inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold
+      text-slate-800 transition hover:border-slate-400 hover:bg-slate-50
+      dark:border-slate-600 dark:bg-slate-800 dark:text-slate-100 dark:hover:border-slate-500 dark:hover:bg-slate-700;
   }
 
   .btn-dark {
-    @apply inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/15;
+    @apply inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-6 py-3 text-sm font-semibold
+      text-white transition hover:bg-white/15;
   }
 
   .nav-link {
-    @apply text-sm font-medium text-slate-700 transition hover:text-slate-950;
+    @apply text-sm font-medium text-slate-700 transition hover:text-slate-950
+      dark:text-slate-300 dark:hover:text-white;
   }
 
   .eyebrow {
-    @apply inline-flex rounded-full border border-teal-200 bg-teal-50 px-4 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-teal-700;
+    @apply inline-flex rounded-full border border-teal-200 bg-teal-50 px-4 py-1 text-xs font-semibold uppercase
+      tracking-[0.22em] text-teal-700
+      dark:border-teal-500/30 dark:bg-teal-500/10 dark:text-teal-300;
   }
 
   .input-field {
-    @apply w-full rounded-2xl border border-slate-200 bg-white px-4 py-3.5 text-slate-900 outline-none placeholder:text-slate-400 focus:border-sky-300 focus:ring-4 focus:ring-sky-100;
+    @apply w-full rounded-2xl border border-slate-200 bg-white px-4 py-3.5 text-slate-900 outline-none
+      placeholder:text-slate-400 focus:border-sky-300 focus:ring-4 focus:ring-sky-100
+      dark:border-slate-600 dark:bg-slate-800/80 dark:text-slate-100 dark:placeholder:text-slate-500
+      dark:focus:border-sky-500 dark:focus:ring-sky-500/20;
   }
 
   .service-card {
-    @apply rounded-[28px] border border-slate-200 bg-white p-6 shadow-[0_12px_30px_rgba(15,23,42,0.05)] transition duration-300 hover:-translate-y-1 hover:border-sky-200 hover:shadow-[0_20px_45px_rgba(14,165,233,0.10)];
+    @apply rounded-[28px] border border-slate-200 bg-white p-6 shadow-[0_12px_30px_rgba(15,23,42,0.05)]
+      transition duration-300 hover:-translate-y-1 hover:border-sky-200 hover:shadow-[0_20px_45px_rgba(14,165,233,0.10)]
+      dark:border-slate-700/80 dark:bg-[#141f33] dark:shadow-[0_12px_30px_rgba(0,0,0,0.3)]
+      dark:hover:border-sky-500/40 dark:hover:shadow-[0_20px_45px_rgba(14,165,233,0.08)];
   }
 
   .section-title {
-    @apply text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl lg:text-5xl;
+    @apply text-3xl font-extrabold tracking-tight text-slate-950 sm:text-4xl lg:text-5xl
+      dark:text-slate-50;
   }
 
   .section-copy {
-    @apply mt-4 text-sm leading-7 text-slate-600 sm:text-base;
+    @apply mt-4 text-sm leading-7 text-slate-600 sm:text-base dark:text-slate-400;
+  }
+
+  .client-marquee {
+    @apply flex gap-4 overflow-x-auto pb-2 scrollbar-none sm:grid sm:overflow-visible sm:pb-0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .client-marquee::-webkit-scrollbar {
+    display: none;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-teal-700 via-sky-600 to-cyan-600 bg-clip-text text-transparent
+      dark:from-teal-400 dark:via-sky-400 dark:to-cyan-400;
+  }
+
+  .text-heading {
+    @apply text-slate-950 dark:text-slate-50;
+  }
+
+  .text-body {
+    @apply text-slate-600 dark:text-slate-400;
+  }
+
+  .text-muted {
+    @apply text-slate-500 dark:text-slate-400;
+  }
+
+  .icon-box {
+    @apply rounded-2xl bg-teal-50 p-3 text-teal-700 ring-1 ring-teal-100
+      dark:bg-teal-500/10 dark:text-teal-300 dark:ring-teal-500/20;
+  }
+
+  .icon-box-sky {
+    @apply rounded-2xl bg-sky-50 p-3 text-sky-700 ring-1 ring-sky-100
+      dark:bg-sky-500/10 dark:text-sky-300 dark:ring-sky-500/20;
   }
 }
