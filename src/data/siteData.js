@@ -18,13 +18,13 @@ import {
 } from 'lucide-react'
 
 export const navLinks = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Services', href: '#services' },
-  { label: 'Industries', href: '#case-studies' },
-  { label: 'Clients', href: '#clients' },
-  { label: 'Careers', href: '#contact' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Home', href: '/#home' },
+  { label: 'About', href: '/#about' },
+  { label: 'Services', href: '/#services' },
+  { label: 'Industries', href: '/#case-studies' },
+  { label: 'Clients', href: '/#clients' },
+  { label: 'Careers', href: '/#contact' },
+  { label: 'Contact', href: '/#contact' },
 ]
 
 export const stats = [
@@ -33,7 +33,17 @@ export const stats = [
   { value: '99%', label: 'Staff Retention Rate' },
 ]
 
-export const clients = ['TCS', 'Infosys', 'PERSISTENT', 'Oracle', 'Accenture']
+export const clients = [
+  'TCS',
+  'Infosys',
+  'Wipro',
+  'HCL',
+  'Tech Mahindra',
+  'Accenture',
+  'IBM',
+  'Cognizant',
+  'Capgemini',
+]
 
 export const services = [
   {

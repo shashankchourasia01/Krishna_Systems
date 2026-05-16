@@ -1,29 +1,30 @@
-import Container from '../ui/Container'
 import Reveal from '../ui/Reveal'
 import ClientLogo from '../ui/ClientLogo'
-import { clients } from '../../data/siteData'
+import { clientBrands } from '../../data/clientBrands'
 
 const Clients = () => {
+  const marqueeItems = [...clientBrands, ...clientBrands]
+
   return (
     <section
       id="clients"
-      className="surface-white overflow-hidden border-y border-slate-100 py-10 dark:border-slate-800 sm:py-12 lg:py-14"
+      className="surface-white overflow-hidden border-y border-slate-100 py-10 dark:border-slate-800 sm:py-12 lg:py-16"
     >
-      <Container>
+      <div className="container-custom">
         <Reveal direction="up">
-          <p className="text-center text-xs font-semibold uppercase tracking-[0.22em] text-muted sm:tracking-[0.28em]">
-            Trusted by leading companies and delivery-focused teams
+          <p className="text-center text-xs font-semibold uppercase tracking-[0.22em] text-muted sm:text-sm sm:tracking-[0.28em]">
+            Trusted by leading enterprises worldwide
           </p>
         </Reveal>
 
-        <div className="client-grid mt-6 sm:mt-8">
-          {clients.map((client, index) => (
-            <Reveal key={client} delay={index * 0.06} direction="up">
-              <ClientLogo name={client} />
-            </Reveal>
-          ))}
+        <div className="client-marquee mt-8 sm:mt-10" aria-label="Partner company logos">
+          <div className="client-marquee__track">
+            {marqueeItems.map((brand, index) => (
+              <ClientLogo key={`${brand.id}-${index}`} brand={brand} />
+            ))}
+          </div>
         </div>
-      </Container>
+      </div>
     </section>
   )
 }

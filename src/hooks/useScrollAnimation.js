@@ -1,19 +1,7 @@
-import { useIsMobile } from './useIsMobile'
-
-export const useScrollAnimation = () => {
-  const isMobile = useIsMobile()
-
-  return {
-    isMobile,
-    viewport: {
-      once: !isMobile,
-      amount: isMobile ? 0.12 : 0.18,
-      margin: isMobile ? '-30px 0px -30px 0px' : '0px',
-    },
-    inViewAmount: isMobile ? 0.12 : 0.18,
-    inViewMargin: isMobile ? '-30px 0px -30px 0px' : '0px 0px -50px 0px',
-    replayOnScroll: isMobile,
-  }
-}
+/** Shared viewport settings for scroll reveal (trigger once only). */
+export const useScrollAnimation = () => ({
+  threshold: 0.15,
+  rootMargin: '0px 0px -8% 0px',
+})
 
 export default useScrollAnimation

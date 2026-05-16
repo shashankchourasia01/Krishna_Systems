@@ -23,14 +23,14 @@ const Navbar = () => {
   }, [open])
 
   const headerClass = scrolled
-    ? 'border-slate-200/90 bg-white/95 shadow-sm backdrop-blur-xl dark:border-slate-700/80 dark:bg-slate-900/95'
-    : 'border-transparent bg-white/80 backdrop-blur-lg dark:bg-slate-900/80'
+    ? 'glass-nav border-slate-200/90 shadow-sm dark:border-slate-700/80'
+    : 'glass-nav border-transparent'
 
   return (
     <>
       <header className={`sticky top-0 z-50 border-b transition-all duration-300 ${headerClass}`}>
         <Container className="flex h-16 items-center justify-between gap-3 sm:h-[4.5rem] lg:h-20">
-          <a href="#home" className="shrink-0" aria-label="Krisha Systems home">
+          <a href="/" className="shrink-0" aria-label="Krisha Systems home">
             <Logo size="sm" className="sm:[&_svg]:!h-11 sm:[&_svg]:!w-11" />
           </a>
 

@@ -43,7 +43,7 @@ const About = () => {
               const Icon = item.icon
               return (
                 <Reveal key={item.title} delay={index * 0.08} direction={index % 2 === 0 ? 'right' : 'left'}>
-                  <div className="card-soft p-5 transition hover:-translate-y-0.5 sm:p-6">
+                  <div className="card-soft card-interactive p-5 sm:p-6">
                     <div className="flex items-start gap-3 sm:gap-4">
                       <div className="icon-box shrink-0">
                         <Icon size={22} />

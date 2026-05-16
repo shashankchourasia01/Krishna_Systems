@@ -1,23 +1,13 @@
-import { useRef } from 'react'
-import { motion, useInView } from 'motion/react'
+import { motion } from 'motion/react'
 import Container from '../ui/Container'
 import SectionHeading from '../ui/SectionHeading'
 import { services, ArrowIcon } from '../../data/siteData'
-import { useScrollDirection } from '../../hooks/useScrollDirection'
+import { useIntersectionObserver, REVEAL_EASE } from '../../hooks/useIntersectionObserver'
 import { useScrollAnimation } from '../../hooks/useScrollAnimation'
 
 const Services = () => {
-  const ref = useRef(null)
-  const scrollDir = useScrollDirection()
-  const { isMobile, inViewAmount, inViewMargin, replayOnScroll } = useScrollAnimation()
-
-  const isInView = useInView(ref, {
-    amount: inViewAmount,
-    margin: inViewMargin,
-    once: !replayOnScroll,
-  })
-
-  const yOffset = isMobile ? (scrollDir === 'down' ? 36 : -36) : 30
+  const { threshold, rootMargin } = useScrollAnimation()
+  const { ref, isVisible } = useIntersectionObserver({ threshold, rootMargin, once: true })
 
   return (
     <section id="services" className="surface-blue section-padding">
@@ -32,10 +22,10 @@ const Services = () => {
         <motion.div
           ref={ref}
           initial="hidden"
-          animate={isInView ? 'show' : 'hidden'}
+          animate={isVisible ? 'show' : 'hidden'}
           variants={{
             hidden: {},
-            show: { transition: { staggerChildren: 0.07, delayChildren: 0.04 } },
+            show: { transition: { staggerChildren: 0.08, delayChildren: 0.04 } },
           }}
           className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 xl:grid-cols-4"
         >
@@ -45,15 +35,14 @@ const Services = () => {
               <motion.div
                 key={service.title}
                 variants={{
-                  hidden: { opacity: 0, y: yOffset, scale: isMobile ? 0.94 : 1 },
+                  hidden: { opacity: 0, y: 32 },
                   show: {
                     opacity: 1,
                     y: 0,
-                    scale: 1,
-                    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+                    transition: { duration: 0.6, ease: REVEAL_EASE },
                   },
                 }}
-                className="service-card flex h-full flex-col"
+                className="service-card card-interactive flex h-full flex-col"
               >
                 <div className="icon-box-sky mb-5 inline-flex">
                   <Icon size={22} />

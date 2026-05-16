@@ -1,35 +1,25 @@
-import { useRef } from 'react'
-import { motion, useInView } from 'motion/react'
-import { useScrollDirection } from '../../hooks/useScrollDirection'
+import { motion } from 'motion/react'
+import { useIntersectionObserver, REVEAL_EASE } from '../../hooks/useIntersectionObserver'
 import { useScrollAnimation } from '../../hooks/useScrollAnimation'
 
 const ScrollStagger = ({
   children,
   className = '',
-  stagger = 0.07,
+  stagger = 0.08,
   childClassName = '',
 }) => {
-  const ref = useRef(null)
-  const scrollDir = useScrollDirection()
-  const { isMobile, inViewAmount, inViewMargin, replayOnScroll } = useScrollAnimation()
-
-  const isInView = useInView(ref, {
-    amount: inViewAmount,
-    margin: inViewMargin,
-    once: !replayOnScroll,
-  })
-
-  const yOffset = isMobile ? (scrollDir === 'down' ? 36 : -36) : 30
+  const { threshold, rootMargin } = useScrollAnimation()
+  const { ref, isVisible } = useIntersectionObserver({ threshold, rootMargin, once: true })
 
   return (
     <motion.div
       ref={ref}
       className={className}
       initial="hidden"
-      animate={isInView ? 'show' : 'hidden'}
+      animate={isVisible ? 'show' : 'hidden'}
       variants={{
         hidden: {},
-        show: { transition: { staggerChildren: stagger, delayChildren: 0.05 } },
+        show: { transition: { staggerChildren: stagger, delayChildren: 0.04 } },
       }}
     >
       {Array.isArray(children)
@@ -38,12 +28,11 @@ const ScrollStagger = ({
               key={child.key ?? i}
               className={childClassName}
               variants={{
-                hidden: { opacity: 0, y: yOffset, scale: isMobile ? 0.94 : 1 },
+                hidden: { opacity: 0, y: 32 },
                 show: {
                   opacity: 1,
                   y: 0,
-                  scale: 1,
-                  transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+                  transition: { duration: 0.6, ease: REVEAL_EASE },
                 },
               }}
             >

@@ -11,7 +11,8 @@ const Hero = () => {
       id="home"
       className="relative w-full overflow-hidden surface-soft pb-12 pt-8 sm:pb-16 sm:pt-12 lg:pb-20 lg:pt-16"
     >
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+      <div className="pointer-events-none absolute inset-0 hero-mesh hero-dots" aria-hidden="true" />
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
         <div className="absolute -left-10 top-0 h-48 w-48 rounded-full bg-cyan-200/30 blur-3xl dark:bg-cyan-500/10 sm:-left-20 sm:h-72 sm:w-72" />
         <div className="absolute -right-10 top-16 h-48 w-48 rounded-full bg-sky-200/30 blur-3xl dark:bg-sky-500/10 sm:-right-16 sm:h-80 sm:w-80" />
         <div className="absolute bottom-0 left-1/2 h-48 w-[min(100%,36rem)] -translate-x-1/2 rounded-full bg-teal-100/40 blur-3xl dark:bg-teal-500/10" />
