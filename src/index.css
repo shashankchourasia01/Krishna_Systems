@@ -294,6 +294,17 @@ h1, h2, .font-display {
     opacity: 1 !important;
   }
 
+  .dark .client-logo__img {
+    filter: grayscale(100%) brightness(0) invert(1);
+    opacity: 0.85;
+  }
+
+  .dark .client-logo:hover .client-logo__img,
+  .dark .client-logo:focus-within .client-logo__img {
+    filter: grayscale(100%) brightness(0) invert(1);
+    opacity: 1 !important;
+  }
+
   .gradient-text {
     @apply bg-gradient-to-r from-teal-700 via-sky-600 to-cyan-600 bg-clip-text text-transparent
       dark:from-teal-400 dark:via-sky-400 dark:to-cyan-400;
@@ -319,5 +330,14 @@ h1, h2, .font-display {
   .icon-box-sky {
     @apply rounded-2xl bg-sky-50 p-3 text-sky-700 ring-1 ring-sky-100
       dark:bg-sky-500/10 dark:text-sky-300 dark:ring-sky-500/20;
+  }
+
+  /* Keeps the KS brand mark readable on dark surfaces (navbar scroll, etc.) */
+  .logo-mark-shell {
+    @apply inline-flex rounded-[14px];
+  }
+
+  .dark .logo-mark-shell {
+    @apply bg-white/95 p-0.5 shadow-[0_2px_12px_rgba(0,0,0,0.35)] ring-1 ring-white/30;
   }
 }
