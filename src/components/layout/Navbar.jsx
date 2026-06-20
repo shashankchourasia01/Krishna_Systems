@@ -30,8 +30,11 @@ const Navbar = () => {
     <>
       <header className={`sticky top-0 z-50 border-b transition-all duration-300 ${headerClass}`}>
         <Container className="flex h-16 items-center justify-between gap-3 sm:h-[4.5rem] lg:h-20">
-          <a href="/" className="shrink-0" aria-label="KS krishasystems home">
-            <Logo size="sm" className="sm:[&_svg]:!h-11 sm:[&_svg]:!w-11" />
+          <a href="/" className="shrink-0 min-w-0" aria-label="krishasystems home">
+            <Logo
+              size="sm"
+              markClassName="h-9 w-9 sm:h-11 sm:w-11"
+            />
           </a>
 
           <nav className="hidden items-center gap-6 xl:flex xl:gap-8">

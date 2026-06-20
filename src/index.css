@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&family=Syne:wght@600;700&display=swap');
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -332,12 +332,36 @@ h1, h2, .font-display {
       dark:bg-sky-500/10 dark:text-sky-300 dark:ring-sky-500/20;
   }
 
-  /* Keeps the KS brand mark readable on dark surfaces (navbar scroll, etc.) */
+  /* Brand mark — dedicated light/dark PNG assets */
   .logo-mark-shell {
-    @apply inline-flex rounded-[14px];
+    @apply inline-flex items-center justify-center;
   }
 
-  .dark .logo-mark-shell {
-    @apply bg-white/95 p-0.5 shadow-[0_2px_12px_rgba(0,0,0,0.35)] ring-1 ring-white/30;
+  .brand-logo-img {
+    @apply select-none;
+  }
+
+  .brand-wordmark {
+    font-family: 'Syne', 'Manrope', sans-serif;
+    @apply max-w-[9.5rem] truncate text-[0.78rem] font-semibold lowercase leading-none tracking-[0.1em]
+      min-[375px]:max-w-none min-[375px]:text-[0.82rem] sm:text-sm md:text-[0.95rem] lg:text-base lg:tracking-[0.12em];
+    background: linear-gradient(120deg, #0f172a 0%, #0f766e 55%, #0284c7 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .dark .brand-wordmark {
+    background: linear-gradient(120deg, #f8fafc 0%, #99f6e4 45%, #7dd3fc 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .brand-wordmark--on-dark {
+    background: linear-gradient(120deg, #ffffff 0%, #a5f3fc 50%, #5eead4 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 }
