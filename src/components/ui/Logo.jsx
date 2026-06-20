@@ -34,6 +34,7 @@ const Logo = ({
   showText = true,
   className = '',
   markClassName = '',
+  wordmarkClassName = '',
   size = 'md',
 }) => {
   const sizes = {
@@ -47,11 +48,11 @@ const Logo = ({
   const markTheme = isDarkSection ? 'on-dark' : 'auto'
 
   return (
-    <div className={`flex items-center gap-2 sm:gap-2.5 ${className}`}>
+    <div className={`flex items-center gap-2.5 sm:gap-3 ${className}`}>
       <LogoMark size={s.mark} theme={markTheme} className={markClassName} />
       {showText && (
         <span
-          className={`brand-wordmark ${isDarkSection ? 'brand-wordmark--on-dark' : ''}`}
+          className={`brand-wordmark ${isDarkSection ? 'brand-wordmark--on-dark' : ''} ${wordmarkClassName}`}
         >
           <span>Krisha</span>
           <span>Systems</span>

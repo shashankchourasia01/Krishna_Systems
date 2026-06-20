@@ -29,11 +29,12 @@ const Navbar = () => {
   return (
     <>
       <header className={`sticky top-0 z-50 border-b transition-all duration-300 ${headerClass}`}>
-        <Container className="flex h-16 items-center justify-between gap-3 sm:h-[4.5rem] lg:h-20">
+        <Container className="flex h-[4.25rem] items-center justify-between gap-3 sm:h-[4.75rem] lg:h-20">
           <a href="/" className="shrink-0 min-w-0" aria-label="Krisha Systems home">
             <Logo
               size="sm"
-              markClassName="h-10 w-10 min-[480px]:h-11 min-[480px]:w-11 sm:h-12 sm:w-12"
+              markClassName="h-12 w-12 sm:h-14 sm:w-14 lg:h-16 lg:w-16"
+              wordmarkClassName="brand-wordmark--nav"
             />
           </a>
 
@@ -82,7 +83,12 @@ const Navbar = () => {
               transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             >
               <div className="flex items-center justify-between border-b border-slate-200 px-4 py-4 dark:border-slate-700 sm:px-5">
-                <Logo size="sm" showText />
+                <Logo
+                  size="sm"
+                  showText
+                  markClassName="h-12 w-12"
+                  wordmarkClassName="brand-wordmark--nav"
+                />
                 <div className="flex items-center gap-2">
                   <ThemeToggle />
                   <button
