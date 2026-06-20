@@ -343,22 +343,28 @@ h1, h2, .font-display {
 
   .brand-wordmark {
     font-family: 'Syne', 'Manrope', sans-serif;
-    @apply max-w-[9.5rem] truncate text-[0.78rem] font-semibold lowercase leading-none tracking-[0.1em]
-      min-[375px]:max-w-none min-[375px]:text-[0.82rem] sm:text-sm md:text-[0.95rem] lg:text-base lg:tracking-[0.12em];
+    @apply flex flex-col leading-[1.05] text-[0.72rem] font-semibold tracking-[0.04em]
+      min-[375px]:text-[0.78rem] sm:text-[0.82rem] md:text-sm lg:text-[0.9rem] lg:tracking-[0.06em];
+  }
+
+  .brand-wordmark,
+  .brand-wordmark > span {
     background: linear-gradient(120deg, #0f172a 0%, #0f766e 55%, #0284c7 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
 
-  .dark .brand-wordmark {
+  .dark .brand-wordmark,
+  .dark .brand-wordmark > span {
     background: linear-gradient(120deg, #f8fafc 0%, #99f6e4 45%, #7dd3fc 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
 
-  .brand-wordmark--on-dark {
+  .brand-wordmark--on-dark,
+  .brand-wordmark--on-dark > span {
     background: linear-gradient(120deg, #ffffff 0%, #a5f3fc 50%, #5eead4 100%);
     -webkit-background-clip: text;
     background-clip: text;

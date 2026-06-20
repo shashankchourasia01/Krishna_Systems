@@ -37,9 +37,9 @@ const Logo = ({
   size = 'md',
 }) => {
   const sizes = {
-    sm: { mark: 36 },
-    md: { mark: 44 },
-    lg: { mark: 52 },
+    sm: { mark: 40 },
+    md: { mark: 48 },
+    lg: { mark: 56 },
   }
 
   const s = sizes[size] || sizes.md
@@ -53,7 +53,8 @@ const Logo = ({
         <span
           className={`brand-wordmark ${isDarkSection ? 'brand-wordmark--on-dark' : ''}`}
         >
-          krishasystems
+          <span>Krisha</span>
+          <span>Systems</span>
         </span>
       )}
     </div>
